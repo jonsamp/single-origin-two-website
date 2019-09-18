@@ -24,7 +24,7 @@ import Suggestions from './assets/suggestions.png';
 
 const MEDIUM_WIDTH = 790;
 const SMALL_WIDTH = 500;
-const twos = ['2', '✌️', '👯‍♀️', '2️⃣', '🥓'];
+const twos = ['2', '✌️', '👯‍', '🥓'];
 
 export default class App extends Component {
   animatedValue = new Animated.Value(1);
@@ -133,6 +133,7 @@ export default class App extends Component {
                     isSmallScreen && { textAlign: 'center' },
                     {
                       width: 32,
+                      height: 40,
                       opacity: this.animatedValue,
                       transform: [
                         {
