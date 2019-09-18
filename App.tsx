@@ -149,7 +149,7 @@ export default class App extends Component {
             <View style={{ flex: 1 }}>
               <Item
                 title="More units"
-                description="Granularly define units in grams, ounces, or measuring cups. Farenheit and Celsius also supported."
+                description="Granularly define units in grams, ounces, or measuring cups. Fahrenheit and Celsius also supported."
               />
               <Item
                 title="Rewritten from scratch"
