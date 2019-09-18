@@ -76,10 +76,19 @@ export default class App extends Component {
         }),
       ]).start();
     }, 2500);
+
+    const containsPrivacy = Boolean(window.location.pathname.match('privacy'));
+    if (containsPrivacy && !this.state.privacyPolicyVisible) {
+      this.setPrivacyPolicy(true);
+    }
   }
 
-  setPrivacyPolicy = value => {
-    this.setState({ privacyPolicyVisible: value });
+  setPrivacyPolicy = async value => {
+    await this.setState({ privacyPolicyVisible: value });
+    const containsPrivacy = Boolean(window.location.pathname.match('privacy'));
+    if (!this.state.privacyPolicyVisible && containsPrivacy) {
+      location.href = '/';
+    }
     window.scrollTo(0, 0);
   };
 
