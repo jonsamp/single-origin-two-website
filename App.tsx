@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   Animated,
+  TouchableOpacity,
 } from 'react-native';
 import colors from './constants/colors';
 import { height } from './constants/layout';
@@ -13,6 +14,7 @@ import type from './constants/type';
 import AppIcon from './assets/icon.png';
 import BetaButton from './components/BetaButton';
 import Item from './components/Item';
+import PrivacyPolicy from './PrivacyPolicy';
 
 // feature images
 import PulsePour from './assets/pulse-pour.gif';
@@ -22,7 +24,7 @@ import Suggestions from './assets/suggestions.png';
 
 const MEDIUM_WIDTH = 790;
 const SMALL_WIDTH = 500;
-const twos = ['2', '✌️', 'II', '👯‍♀️', '⓶', '2️⃣', '🥓'];
+const twos = ['2', '✌️', '👯‍♀️', '2️⃣', '🥓'];
 
 export default class App extends Component {
   animatedValue = new Animated.Value(1);
@@ -31,6 +33,7 @@ export default class App extends Component {
     isSmallScreen: Dimensions.get('window').width < SMALL_WIDTH,
     isMediumScreen: Dimensions.get('window').width < MEDIUM_WIDTH,
     due: '2',
+    privacyPolicyVisible: false,
   };
 
   componentDidMount() {
@@ -75,8 +78,16 @@ export default class App extends Component {
     }, 2500);
   }
 
+  setPrivacyPolicy = value => {
+    this.setState({ privacyPolicyVisible: value });
+    window.scrollTo(0, 0);
+  };
+
   render() {
-    const { isSmallScreen, isMediumScreen } = this.state;
+    const { isSmallScreen, isMediumScreen, privacyPolicyVisible } = this.state;
+    if (privacyPolicyVisible) {
+      return <PrivacyPolicy onBack={() => this.setPrivacyPolicy(false)} />;
+    }
     return (
       <View style={styles.container}>
         <View style={styles.section}>
@@ -224,6 +235,42 @@ export default class App extends Component {
         </View>
         <View style={[styles.section, styles.footer]}>
           <BetaButton />
+        </View>
+        <View
+          style={[
+            styles.section,
+            styles.darkSection,
+            {
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              paddingHorizontal: 32,
+            },
+          ]}
+        >
+          <View>
+            <Text style={[type.body, { color: colors.dark.foreground }]}>
+              Single Origin 2
+            </Text>
+            <Text style={[type.body, { color: colors.dark.foreground }]}>
+              Copyright {new Date().getFullYear()}
+            </Text>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.dark.foreground,
+                paddingHorizontal: 16,
+                paddingVertical: 8,
+                borderRadius: 4,
+                marginBottom: 16,
+              }}
+              onPress={() => this.setPrivacyPolicy(true)}
+            >
+              <Text style={[type.headline, { color: colors.dark.background }]}>
+                Privacy Policy
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
