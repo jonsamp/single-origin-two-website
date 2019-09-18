@@ -52,5 +52,6 @@ const styles = StyleSheet.create({
     padding: 12,
     color: colors.light.foreground,
     fontWeight: '900',
+    marginRight: 16,
   },
 });

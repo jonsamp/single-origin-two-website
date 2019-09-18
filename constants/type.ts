@@ -7,7 +7,7 @@ export default {
     fontSize: 34,
     lineHeight: 41,
     letterSpacing: 0.011,
-    fontWeight: '700',
+    fontWeight: '900',
   } as TextStyle,
   header: {
     fontSize: 28,
