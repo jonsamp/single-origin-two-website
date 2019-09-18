@@ -27,7 +27,7 @@ export default BetaButton;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.light.primary,
-    borderRadius: 8,
+    borderRadius: 4,
     flexDirection: 'row',
     alignItems: 'center',
     shadowColor: 'rgba(0,0,0,0.2)',

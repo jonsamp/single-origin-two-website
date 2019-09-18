@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  Animated,
+} from 'react-native';
 import colors from './constants/colors';
 import { height } from './constants/layout';
 import type from './constants/type';
@@ -15,15 +22,19 @@ import Suggestions from './assets/suggestions.png';
 
 const MEDIUM_WIDTH = 790;
 const SMALL_WIDTH = 500;
+const twos = ['2', '✌️', 'II', '👯‍♀️', '⓶', '2️⃣', '🙌'];
 
 export default class App extends Component {
-  windowDimensions;
+  animatedValue = new Animated.Value(1);
+
   state = {
     isSmallScreen: Dimensions.get('window').width < SMALL_WIDTH,
     isMediumScreen: Dimensions.get('window').width < MEDIUM_WIDTH,
+    due: '2',
   };
+
   componentDidMount() {
-    this.windowDimensions = Dimensions.addEventListener('change', r => {
+    Dimensions.addEventListener('change', r => {
       if (r.window.width < SMALL_WIDTH && !this.state.isSmallScreen) {
         this.setState({ isSmallScreen: true });
       } else if (r.window.width >= SMALL_WIDTH && this.state.isSmallScreen) {
@@ -36,7 +47,34 @@ export default class App extends Component {
         this.setState({ isMediumScreen: false });
       }
     });
+
+    setInterval(() => {
+      const index = twos.findIndex(i => i === this.state.due);
+      let nextIndex = index + 1;
+      if (nextIndex >= twos.length) {
+        nextIndex = 0;
+      }
+
+      Animated.sequence([
+        Animated.timing(this.animatedValue, {
+          toValue: 0,
+          duration: 400,
+        }),
+        {
+          start: async onComplete => {
+            await this.setState({ due: twos[nextIndex] });
+            onComplete({ finished: true });
+          },
+          stop: () => {},
+        },
+        Animated.timing(this.animatedValue, {
+          toValue: 1,
+          duration: 400,
+        }),
+      ]).start();
+    }, 2500);
   }
+
   render() {
     const { isSmallScreen, isMediumScreen } = this.state;
     return (
@@ -56,14 +94,36 @@ export default class App extends Component {
               ]}
             />
             <View style={{ minWidth: 200 }}>
-              <Text
-                style={[
-                  type.largeTitle,
-                  isSmallScreen && { textAlign: 'center' },
-                ]}
-              >
-                Single Origin 2
-              </Text>
+              <View style={styles.displayHorizontal}>
+                <Text
+                  style={[
+                    type.largeTitle,
+                    isSmallScreen && { textAlign: 'center' },
+                  ]}
+                >
+                  Single Origin{' '}
+                </Text>
+                <Animated.Text
+                  style={[
+                    type.largeTitle,
+                    isSmallScreen && { textAlign: 'center' },
+                    {
+                      width: 32,
+                      opacity: this.animatedValue,
+                      transform: [
+                        {
+                          scale: this.animatedValue.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0.8, 1],
+                          }),
+                        },
+                      ],
+                    },
+                  ]}
+                >
+                  {this.state.due}
+                </Animated.Text>
+              </View>
               <Text
                 style={[
                   type.body,

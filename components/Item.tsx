@@ -36,13 +36,13 @@ const styles = StyleSheet.create({
     padding: 40,
     backgroundColor: colors.dark.grey1,
     margin: 8,
-    borderRadius: 4,
+    borderRadius: 8,
     flex: 1,
     borderWidth: 1,
   },
   image: {
     flex: 1,
-    borderRadius: 8,
+    borderRadius: 4,
     resizeMode: 'cover',
     marginBottom: 24,
     minHeight: 120,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     borderBottomWidth: 2,
     borderBottomColor: colors.dark.primary,
-    paddingBottom: 4,
+    paddingBottom: 6,
     marginBottom: 12,
   },
   text: {
