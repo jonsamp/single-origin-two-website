@@ -4,7 +4,7 @@
     "start": "expo start",
     "web": "expo start --web",
     "deploy": "gh-pages -d web-build",
-    "predeploy": "expo build:web && cp CNAME ./web-build"
+    "predeploy": "expo build:web && cp CNAME ./web-build && cp .htaccess ./web-build"
   },
   "dependencies": {
     "expo": "^34.0.1",
