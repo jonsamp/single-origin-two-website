@@ -22,7 +22,7 @@ import Suggestions from './assets/suggestions.png';
 
 const MEDIUM_WIDTH = 790;
 const SMALL_WIDTH = 500;
-const twos = ['2', '✌️', 'II', '👯‍♀️', '⓶', '2️⃣', '🙌'];
+const twos = ['2', '✌️', 'II', '👯‍♀️', '⓶', '2️⃣', '🥓'];
 
 export default class App extends Component {
   animatedValue = new Animated.Value(1);
@@ -84,6 +84,10 @@ export default class App extends Component {
             style={[
               styles.displayHorizontal,
               isSmallScreen && styles.headerSmallScreen,
+              {
+                minHeight: height / 3.5,
+                alignItems: 'center',
+              },
             ]}
           >
             <Image
@@ -93,7 +97,7 @@ export default class App extends Component {
                 isSmallScreen && { marginRight: 0, marginBottom: 24 },
               ]}
             />
-            <View style={{ minWidth: 200 }}>
+            <View>
               <View style={styles.displayHorizontal}>
                 <Text
                   style={[
