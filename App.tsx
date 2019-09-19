@@ -166,7 +166,9 @@ export default class App extends Component {
           <View
             style={[
               !isSmallScreen && !isMediumScreen && styles.displayHorizontal,
-              isSmallScreen || isMediumScreen ? { flex: 1 } : { width: 790 },
+              isSmallScreen || isMediumScreen
+                ? { flex: 1 }
+                : { width: MEDIUM_WIDTH },
             ]}
           >
             <View style={{ flex: 1 }}>
@@ -191,8 +193,22 @@ export default class App extends Component {
           </View>
           <View
             style={[
+              isSmallScreen || isMediumScreen
+                ? { flex: 1 }
+                : { width: MEDIUM_WIDTH },
+            ]}
+          >
+            <Item
+              title="Brew without a scale"
+              description="When pouring a pour over method, follow along with the pour animation on screen to get close to the correct ratios when you don't have a scale."
+            />
+          </View>
+          <View
+            style={[
               !isSmallScreen && !isMediumScreen && styles.displayHorizontal,
-              isSmallScreen || isMediumScreen ? { flex: 1 } : { width: 790 },
+              isSmallScreen || isMediumScreen
+                ? { flex: 1 }
+                : { width: MEDIUM_WIDTH },
             ]}
           >
             <View style={{ flex: 1 }}>
@@ -218,7 +234,9 @@ export default class App extends Component {
           <View
             style={[
               !isSmallScreen && !isMediumScreen && styles.displayHorizontal,
-              isSmallScreen || isMediumScreen ? { flex: 1 } : { width: 790 },
+              isSmallScreen || isMediumScreen
+                ? { flex: 1 }
+                : { width: MEDIUM_WIDTH },
             ]}
           >
             <View style={{ flex: 1 }}>
