@@ -162,7 +162,13 @@ export default class App extends Component {
             </View>
           </View>
         </View>
-        <View style={[styles.section, styles.darkSection]}>
+        <View
+          style={[
+            styles.section,
+            styles.darkSection,
+            isSmallScreen && { paddingVertical: 8 },
+          ]}
+        >
           <View
             style={[
               !isSmallScreen && !isMediumScreen && styles.displayHorizontal,
