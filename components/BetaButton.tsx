@@ -6,6 +6,7 @@ import colors from '../constants/colors';
 interface BetaButtonProps {}
 
 function BetaButton(props: BetaButtonProps) {
+  return null;
   return (
     <TouchableOpacity
       style={styles.container}
