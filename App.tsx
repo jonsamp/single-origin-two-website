@@ -267,9 +267,9 @@ export default class App extends Component {
             </View>
           </View>
         </View>
-        {/* <View style={[styles.section, styles.footer]}>
+        <View style={[styles.section, styles.footer]}>
           <BetaButton />
-        </View> */}
+        </View>
         <View
           style={[
             styles.section,

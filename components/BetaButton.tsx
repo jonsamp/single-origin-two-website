@@ -1,16 +1,23 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Linking,
+} from 'react-native';
 import type from '../constants/type';
 import colors from '../constants/colors';
 
 interface BetaButtonProps {}
 
 function BetaButton(props: BetaButtonProps) {
-  return null;
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => {}}
+      onPress={() =>
+        Linking.openURL('https://testflight.apple.com/join/BhUi3kod')
+      }
       accessibilityTraits="button"
       accessibilityComponentType="button"
       activeOpacity={0.6}
