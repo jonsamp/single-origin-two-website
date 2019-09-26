@@ -16,7 +16,9 @@ function BetaButton(props: BetaButtonProps) {
     <TouchableOpacity
       style={styles.container}
       onPress={() =>
-        Linking.openURL('https://testflight.apple.com/join/BhUi3kod')
+        Linking.openURL(
+          'https://apps.apple.com/us/app/single-origin-2-coffee-timer/id1480168613?ls=1'
+        )
       }
       accessibilityTraits="button"
       accessibilityComponentType="button"
@@ -25,7 +27,9 @@ function BetaButton(props: BetaButtonProps) {
       <View style={styles.iconContainer}>
         <Text style={[type.headline, styles.iconText]}></Text>
       </View>
-      <Text style={[type.headline, styles.buttonText]}>Join the iOS beta</Text>
+      <Text style={[type.headline, styles.buttonText]}>
+        Get on the App Store
+      </Text>
     </TouchableOpacity>
   );
 }
