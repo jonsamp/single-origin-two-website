@@ -9,32 +9,32 @@ import {
 import type from '../constants/type';
 import colors from '../constants/colors';
 
-interface BetaButtonProps {}
-
-function BetaButton(props: BetaButtonProps) {
+function AppStoreButton() {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() =>
-        Linking.openURL(
-          'https://apps.apple.com/us/app/single-origin-2-coffee-timer/id1480168613?ls=1'
-        )
-      }
-      accessibilityTraits="button"
-      accessibilityComponentType="button"
-      activeOpacity={0.6}
-    >
-      <View style={styles.iconContainer}>
-        <Text style={[type.headline, styles.iconText]}></Text>
-      </View>
-      <Text style={[type.headline, styles.buttonText]}>
-        Get on the App Store
-      </Text>
-    </TouchableOpacity>
+    <View style={{ flexDirection: 'row' }}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() =>
+          Linking.openURL(
+            'https://apps.apple.com/us/app/single-origin-2-coffee-timer/id1480168613?ls=1'
+          )
+        }
+        accessibilityTraits="button"
+        accessibilityComponentType="button"
+        activeOpacity={0.6}
+      >
+        <View style={styles.iconContainer}>
+          <Text style={[type.headline, styles.iconText]}></Text>
+        </View>
+        <Text style={[type.headline, styles.buttonText]}>
+          Get on the App Store
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
-export default BetaButton;
+export default AppStoreButton;
 
 const styles = StyleSheet.create({
   container: {

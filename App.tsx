@@ -12,7 +12,7 @@ import colors from './constants/colors';
 import { height } from './constants/layout';
 import type from './constants/type';
 import AppIcon from './assets/icon.png';
-import BetaButton from './components/BetaButton';
+import AppStoreButton from './components/AppStoreButton';
 import Item from './components/Item';
 import PrivacyPolicy from './PrivacyPolicy';
 
@@ -24,7 +24,7 @@ import Suggestions from './assets/suggestions.png';
 
 const MEDIUM_WIDTH = 790;
 const SMALL_WIDTH = 500;
-const twos = ['2', '✌️', '👯‍', '🥓'];
+const twos = ['2', 'II', '✌️'];
 
 export default class App extends Component {
   animatedValue = new Animated.Value(1);
@@ -103,62 +103,77 @@ export default class App extends Component {
           <View
             style={[
               styles.displayHorizontal,
-              isSmallScreen && styles.headerSmallScreen,
               {
                 minHeight: height / 3.5,
                 alignItems: 'center',
               },
             ]}
           >
-            <Image
-              source={AppIcon}
+            <View
               style={[
-                styles.appIcon,
-                isSmallScreen && { marginRight: 0, marginBottom: 24 },
+                styles.displayHorizontal,
+                isSmallScreen && styles.headerSmallScreen,
+                { flex: 1 },
               ]}
-            />
-            <View>
-              <View style={styles.displayHorizontal}>
-                <Text
-                  style={[
-                    type.largeTitle,
-                    isSmallScreen && { textAlign: 'center' },
-                  ]}
-                >
-                  Single Origin{' '}
-                </Text>
-                <Animated.Text
-                  style={[
-                    type.largeTitle,
-                    isSmallScreen && { textAlign: 'center' },
-                    {
-                      width: 32,
-                      height: 40,
-                      opacity: this.animatedValue,
-                      transform: [
-                        {
-                          scale: this.animatedValue.interpolate({
-                            inputRange: [0, 1],
-                            outputRange: [0.8, 1],
-                          }),
-                        },
-                      ],
-                    },
-                  ]}
-                >
-                  {this.state.due}
-                </Animated.Text>
-              </View>
-              <Text
+            >
+              <Image
+                source={AppIcon}
                 style={[
-                  type.body,
-                  { marginTop: 8, marginBottom: 24 },
-                  isSmallScreen && { textAlign: 'center' },
+                  styles.appIcon,
+                  isSmallScreen && { marginRight: 0, marginBottom: 24 },
+                ]}
+              />
+              <View
+                style={[
+                  { flex: 1 },
+                  isSmallScreen && {
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  },
                 ]}
               >
-                Learn to brew specialty coffee.
-              </Text>
-              <BetaButton />
+                <View style={styles.displayHorizontal}>
+                  <Text
+                    style={[
+                      type.largeTitle,
+                      isSmallScreen && { textAlign: 'center' },
+                    ]}
+                  >
+                    Single Origin{' '}
+                  </Text>
+                  <Animated.Text
+                    style={[
+                      type.largeTitle,
+                      isSmallScreen && { textAlign: 'center' },
+                      {
+                        width: 32,
+                        height: 40,
+                        opacity: this.animatedValue,
+                        transform: [
+                          {
+                            scale: this.animatedValue.interpolate({
+                              inputRange: [0, 1],
+                              outputRange: [0.8, 1],
+                            }),
+                          },
+                        ],
+                      },
+                    ]}
+                  >
+                    {this.state.due}
+                  </Animated.Text>
+                </View>
+                <Text
+                  style={[
+                    type.body,
+                    { marginTop: 8, marginBottom: 24, maxWidth: 260 },
+                    isSmallScreen && { textAlign: 'center' },
+                  ]}
+                >
+                  Learn to brew specialty coffee, now on iPhone and iPad.
+                </Text>
+                <AppStoreButton />
+              </View>
             </View>
           </View>
         </View>
@@ -268,7 +283,7 @@ export default class App extends Component {
           </View>
         </View>
         <View style={[styles.section, styles.footer]}>
-          <BetaButton />
+          <AppStoreButton />
         </View>
         <View
           style={[
