@@ -8,6 +8,7 @@ import {
   Animated,
   TouchableOpacity,
 } from 'react-native';
+import { Video } from 'expo-av';
 import colors from './constants/colors';
 import { height } from './constants/layout';
 import type from './constants/type';
@@ -176,6 +177,19 @@ export default class App extends Component {
               </View>
             </View>
           </View>
+        </View>
+        <View style={[styles.section, styles.primarySection]}>
+          <Video
+            source={{
+              uri: 'https://singleoriginapp.s3.amazonaws.com/app-preview.mp4',
+            }}
+            rate={1.0}
+            volume={1.0}
+            isMuted={false}
+            resizeMode="cover"
+            useNativeControls
+            style={{ width: 280, height: 606, backgroundColor: 'black' }}
+          />
         </View>
         <View
           style={[
@@ -352,6 +366,9 @@ const styles = StyleSheet.create({
   },
   darkSection: {
     backgroundColor: colors.dark.background,
+  },
+  primarySection: {
+    backgroundColor: colors.light.primary,
   },
   footer: {
     backgroundColor: colors.dark.grey1,
