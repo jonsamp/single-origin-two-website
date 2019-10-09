@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginRight: 32,
-    borderRadius: 12,
+    borderRadius: 17,
   },
   displayHorizontal: {
     flexDirection: 'row',
