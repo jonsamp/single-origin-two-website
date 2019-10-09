@@ -277,7 +277,7 @@ export default class App extends Component {
             <View style={{ flex: 1 }}>
               <Item
                 title="More recipes"
-                description="Now serving Chemex, Chemex 3 Cup, Clever, Kalita Wave 185, Kalita Wave 155, V60, V60 #01 "
+                description="Now brewing Aeropress, Beehouse, Chemex, Chemex 3 Cup, Clever, Eva Solo, French Press, Kalita Wave (185, 155), V60 (#02, #01)"
               />
               <Item
                 title="Choose your grinder"
