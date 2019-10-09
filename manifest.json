@@ -13,17 +13,17 @@
   "theme_color": "#4630EB",
   "icons": [
     {
-      "src": "/apple/icons/icon_180x180.1bb4d3f3d0e8874d0f9592d0dc01616c.png",
+      "src": "/apple/icons/icon_180x180.52663cb47f2001a463450ea41cada96b.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/apple/icons/icon_192x192.eff9271a16cb42baa50bf6d687722c41.png",
+      "src": "/apple/icons/icon_192x192.3681b4adeba9cd05bf4917fa29d77533.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/apple/icons/icon_512x512.2204eacab67472db2046d6b3afc60054.png",
+      "src": "/apple/icons/icon_512x512.339b9485e904db406cfd4f3a94bf5d5c.png",
       "sizes": "512x512",
       "type": "image/png"
     }
