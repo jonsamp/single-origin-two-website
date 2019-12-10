@@ -3,7 +3,7 @@
     "name": "Single Origin 2",
     "slug": "single-origin-2",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
