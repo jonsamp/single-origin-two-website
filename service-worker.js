@@ -14,9 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.147a71d863dff459f651d5f7aa5aef10.js"
+  "/precache-manifest.03c49065b98d3d0080aa3f591d893ded.js"
 );
 
+workbox.skipWaiting();
 workbox.clientsClaim();
 
 /**
@@ -27,3 +28,10 @@ workbox.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.routing.registerNavigationRoute("index.html", {
+  
+  blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
+});
+
+workbox.routing.registerRoute(/^https?.*/, workbox.strategies.networkFirst({ "cacheName":"offlineCache", plugins: [new workbox.expiration.Plugin({"maxEntries":200,"purgeOnQuotaError":false})] }), 'GET');

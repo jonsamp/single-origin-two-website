@@ -1,29 +1,24 @@
 {
   "background_color": "#ffffff",
-  "description": "A Neat Expo App",
-  "dir": "auto",
   "display": "standalone",
   "lang": "en",
   "name": "Single Origin 2",
-  "orientation": "portrait",
-  "prefer_related_applications": true,
-  "related_applications": [],
   "short_name": "Single Origin 2",
-  "start_url": ".",
-  "theme_color": "#4630EB",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "/apple/icons/icon_180x180.52663cb47f2001a463450ea41cada96b.png",
-      "sizes": "180x180",
+      "src": "/pwa/chrome-icon/chrome-icon-144.png",
+      "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "/apple/icons/icon_192x192.3681b4adeba9cd05bf4917fa29d77533.png",
+      "src": "/pwa/chrome-icon/chrome-icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/apple/icons/icon_512x512.339b9485e904db406cfd4f3a94bf5d5c.png",
+      "src": "/pwa/chrome-icon/chrome-icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
